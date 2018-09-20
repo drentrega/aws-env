@@ -1,6 +1,6 @@
 {
-  "name": "awsenv",
-  "version": "1.0.1",
+  "name": "@dre/awsenv",
+  "version": "1.0.0",
   "description": "Secure way to handle environment variables in Docker with AWS Parameter Store",
   "main": "./index.js",
   "bin": {
