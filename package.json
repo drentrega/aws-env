@@ -1,6 +1,6 @@
 {
   "name": "@dre/awsenv",
-  "version": "1.0.5",
+  "version": "1.0.0",
   "description": "Secure way to handle environment variables in Docker with AWS Parameter Store",
   "main": "./index.js",
   "bin": {
@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/developers-vitta/awsenv#readme",
   "scripts": {
-    "build": "pkg . --out-path ./releases && sudo chmod +x ./releases/*"
+    "build": "pkg . --out-path ./releases && sudo chmod +x ./releases/*",
+    "publish": "npm publish --access public"
   },
   "devDependencies": {
     "pkg": "^4.3.4"
