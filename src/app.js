@@ -4,6 +4,7 @@ const { AWSENV_NAMESPACE, AWS_REGION } = process.env;
 const { DEFAULT_ERROR_MSG } = require('./concerns/msgs');
 
 module.exports = async (params) => {
+  console.log(params);
   if (!params.namespace && !AWSENV_NAMESPACE) {
     console.error(DEFAULT_ERROR_MSG);
     process.exit(1);
