@@ -69,7 +69,7 @@ export DB_USERNAME=root
 export DB_PASSWORD=mysecretpassword
 
 # or
-$ aws-env --without-export > /app/myapp/.env
+$ aws-env --prefix "" > /app/myapp/.env
 $ cat /app/mysapp/.env
 NODE_ENV=staging
 DB_USERNAME=root
