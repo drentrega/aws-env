@@ -94,7 +94,6 @@ Fork-it first, and:
 ```bash
 $ npm link
 $ aws-env version
-1.0.11
 ```
 
 Make your magic!
