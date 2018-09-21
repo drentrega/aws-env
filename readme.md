@@ -2,7 +2,7 @@
 
 A secure way to handle environment variables in Docker with AWS Parameter Store.
 
-Original project you can follow at [developers-vitta/awsenv](https://github.com/developers-vitta/awsenv)
+This project is just a fork, the original project you can find at [developers-vitta/awsenv](https://github.com/developers-vitta/awsenv).
 
 ## Install
 
