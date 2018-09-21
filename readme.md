@@ -34,7 +34,7 @@ $ $(aws-env -r sa-east-1 -n /staging/my-app)
 With a combination of [dotenv](https://www.npmjs.com/package/dotenv), this is another solution at build stage:
 
 ```bash
-$ aws-env --without-export \
+$ aws-env -p "" \
   -r sa-east-1 \
   -n /staging/my-app
 
@@ -44,7 +44,7 @@ DB_USERNAME=root
 DB_PASSWORD=mysecretpassword
 
 # so, you may use as:
-$ aws-env --without-export \
+$ aws-env -p "" \
   -r sa-east-1 \
   -n /staging/my-app > /app/myapp/.env
 $ cat /dre/mysapp/.env
@@ -58,7 +58,7 @@ DB_PASSWORD=mysecretpassword
 ```bash
 # first you set your variables
 export AWS_REGION=sa-east-1
-export aws-env_NAMESPACE=/staging/my-app
+export AWSENV_NAMESPACE=/staging/my-app
 
 # exec it
 $ aws-env
@@ -83,7 +83,7 @@ Fork-it first, and:
 ```bash
 $ npm link
 $ aws-env version
-1.0.1
+1.0.6
 ```
 
 Make your magic!
