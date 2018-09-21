@@ -25,7 +25,7 @@ module.exports = async (params) => {
       });
       return acc;
     }, [])
-    .map((param) => `${params.prefix}${param.key}=${param.value}`);
+    .map((param) => `${typeof params.prefix !== 'boolean' ? params.prefix : ''}${param.key}=${param.value}`);
 
   process.stdout.write(variables.join('\n'));
 }
