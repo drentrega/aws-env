@@ -57,7 +57,7 @@ $ aws-env -p "" \
   -r sa-east-1 \
   -n /staging/my-app \
   -o /app/myapp/.env
-$ cat /dre/mysapp/.env
+$ cat /app/mysapp/.env
 NODE_ENV=staging
 DB_USERNAME=root
 DB_PASSWORD=mysecretpassword
@@ -69,6 +69,7 @@ DB_PASSWORD=mysecretpassword
 # first you set your variables
 export AWS_REGION=sa-east-1
 export AWSENV_NAMESPACE=/staging/my-app
+export AWSENV_OUT=/app/mysapp/.env
 
 # exec it
 $ aws-env
@@ -79,8 +80,7 @@ export DB_USERNAME=root
 export DB_PASSWORD=mysecretpassword
 
 # or
-$ aws-env --prefix "" \
-  --out /app/myapp/.env
+$ aws-env --prefix ""
 $ cat /app/mysapp/.env
 NODE_ENV=staging
 DB_USERNAME=root
@@ -94,7 +94,7 @@ Fork-it first, and:
 ```bash
 $ npm link
 $ aws-env version
-1.0.8
+1.0.11
 ```
 
 Make your magic!
