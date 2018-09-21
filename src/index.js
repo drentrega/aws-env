@@ -21,6 +21,6 @@ args
 
 examples.forEach(example => args.example(example.usage, example.description));
 
-let params = args.parse(process.argv, { name: 'aws-env' });
+let params = args.parse(process.argv.filter(e => e !== '-c'), { name: 'aws-env' });
 
 app({ ...defaults, ...params });
