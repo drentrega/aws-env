@@ -2,12 +2,14 @@ const AwsSsm = require('./vendor/aws-ssm');
 const { DEFAULT_ERROR_MSG } = require('./concerns/msgs');
 
 module.exports = async (params) => {
-  if (params.verbose) console.debug('DEBUG |', JSON.stringify({ params }));
+  if (params.verbose) console.debug('DEBUG | input', JSON.stringify({ params }));
 
   if (!params.namespace) {
     console.error(DEFAULT_ERROR_MSG);
     process.exit(1);
   }
+
+  if (typeof params.prefix === 'boolean') params.prefix = '';
 
   let response = null;
   try {
@@ -25,7 +27,7 @@ module.exports = async (params) => {
       });
       return acc;
     }, [])
-    .map((param) => `${typeof params.prefix !== 'boolean' ? params.prefix : ''}${param.key}=${param.value}`);
+    .map((param) => `${params.prefix}${param.key}=${param.value}`);
 
   process.stdout.write(variables.join('\n'));
 }
