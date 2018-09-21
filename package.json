@@ -22,7 +22,8 @@
   "homepage": "https://github.com/drentrega/aws-env#readme",
   "scripts": {
     "build": "pkg . --out-path ./releases && sudo chmod +x ./releases/*",
-    "publish": "npm publish --access public"
+    "publish": "npm publish --access public",
+    "version": "npm version patch -m \"build(*): new version packaging\""
   },
   "devDependencies": {
     "pkg": "^4.3.4"
