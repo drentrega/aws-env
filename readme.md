@@ -1,11 +1,13 @@
-# AWSENV
+# @dre/aws-env
 
 A secure way to handle environment variables in Docker with AWS Parameter Store.
+
+Original project you can follow at [developers-vitta/awsenv](https://github.com/developers-vitta/awsenv)
 
 ## Install
 
 ```bash
-$ npm i -g awsenv
+$ npm i -g @dre/aws-env
 ```
 
 ## Usage ways
@@ -15,7 +17,7 @@ $ npm i -g awsenv
 #### First suggestion:
 
 ```bash
-$ awsenv -r sa-east-1 \
+$ aws-env -r sa-east-1 \
   -n /staging/my-app
 
 # this will result as:
@@ -24,7 +26,7 @@ export DB_USERNAME=root
 export DB_PASSWORD=mysecretpassword
 
 # so, you may use as:
-$ $(awsenv -r sa-east-1 -n /staging/my-app)
+$ $(aws-env -r sa-east-1 -n /staging/my-app)
 ```
 
 #### Second suggestion:
@@ -32,7 +34,7 @@ $ $(awsenv -r sa-east-1 -n /staging/my-app)
 With a combination of [dotenv](https://www.npmjs.com/package/dotenv), this is another solution at build stage:
 
 ```bash
-$ awsenv --without-export \
+$ aws-env --without-export \
   -r sa-east-1 \
   -n /staging/my-app
 
@@ -42,7 +44,7 @@ DB_USERNAME=root
 DB_PASSWORD=mysecretpassword
 
 # so, you may use as:
-$ awsenv --without-export \
+$ aws-env --without-export \
   -r sa-east-1 \
   -n /staging/my-app > /app/myapp/.env
 $ cat /dre/mysapp/.env
@@ -56,10 +58,10 @@ DB_PASSWORD=mysecretpassword
 ```bash
 # first you set your variables
 export AWS_REGION=sa-east-1
-export AWSENV_NAMESPACE=/staging/my-app
+export aws-env_NAMESPACE=/staging/my-app
 
 # exec it
-$ awsenv
+$ aws-env
 
 # this will result as:
 export NODE_ENV=staging
@@ -67,7 +69,7 @@ export DB_USERNAME=root
 export DB_PASSWORD=mysecretpassword
 
 # or
-$ awsenv --without-export > /app/myapp/.env
+$ aws-env --without-export > /app/myapp/.env
 $ cat /app/mysapp/.env
 NODE_ENV=staging
 DB_USERNAME=root
@@ -80,7 +82,7 @@ Fork-it first, and:
 
 ```bash
 $ npm link
-$ awsenv version
+$ aws-env version
 1.0.1
 ```
 

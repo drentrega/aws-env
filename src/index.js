@@ -12,6 +12,6 @@ args
   .option('namespace', OPTION_NAMESPACE_DESCRIPTION)
   .option('without-exporter', OPTION_WITHOUT_EXPORTER_DESCRIPTION);
 
-const params = args.parse(process.argv, { name: 'awsenv' });
+const params = args.parse(process.argv, { name: 'aws-env' });
 
 app(params);
