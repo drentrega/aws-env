@@ -1,24 +1,25 @@
 {
-  "name": "awsenv",
-  "version": "1.0.1",
+  "name": "@dre/aws-env",
+  "version": "1.0.7",
   "description": "Secure way to handle environment variables in Docker with AWS Parameter Store",
   "main": "./index.js",
   "bin": {
-    "awsenv": "./index.js"
+    "aws-env": "./index.js"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/developers-vitta/awsenv.git"
+    "url": "git+ssh://git@github.com/drentrega/aws-env.git"
   },
-  "author": "Gilson F. B. Souza <gilsonfernandesbatista@gmail.com> (https://github.com/gilsonsouzah)",
+  "author": "@dre",
   "contributors": [
-    "Filipe Forattini <filipeforattini1@gmail.com> (https://github.com/filipeforattini/)"
+    "Filipe Forattini <filipeforattini1@gmail.com> (https://github.com/filipeforattini/)",
+    "Gilson F. B. Souza <gilsonfernandesbatista@gmail.com> (https://github.com/gilsonsouzah)"
   ],
   "bugs": {
-    "url": "https://github.com/developers-vitta/awsenv/issues"
+    "url": "https://github.com/drentrega/aws-env/issues"
   },
-  "homepage": "https://github.com/developers-vitta/awsenv#readme",
+  "homepage": "https://github.com/drentrega/aws-env#readme",
   "scripts": {
     "build": "pkg . --out-path ./releases && sudo chmod +x ./releases/*",
     "publish": "npm publish --access public"
@@ -33,7 +34,7 @@
   "keywords": [
     "aws",
     "env",
-    "awsenv",
+    "aws-env",
     "ssm",
     "docker"
   ]

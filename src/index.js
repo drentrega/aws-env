@@ -1,17 +1,24 @@
 const args = require('args');
+
 const app = require('./app');
+const defaults = require('./concerns/defaults');
+const examples = require('./concerns/examples');
 
 const {
-  OPTION_REGION_DESCRIPTION,
   OPTION_NAMESPACE_DESCRIPTION,
-  OPTION_WITHOUT_EXPORTER_DESCRIPTION,
+  OPTION_PREFIX_DESCRIPTION,
+  OPTION_REGION_DESCRIPTION,
+  OPTION_VERBOSE_DESCRIPTION,
 } = require('./concerns/msgs');
 
 args
-  .option('region', OPTION_REGION_DESCRIPTION, 'us-east-1')
   .option('namespace', OPTION_NAMESPACE_DESCRIPTION)
-  .option('without-exporter', OPTION_WITHOUT_EXPORTER_DESCRIPTION);
+  .option('prefix', OPTION_PREFIX_DESCRIPTION)
+  .option('region', OPTION_REGION_DESCRIPTION)
+  .option('verbose', OPTION_VERBOSE_DESCRIPTION)
 
-const params = args.parse(process.argv, { name: 'awsenv' });
+examples.forEach(example => args.example(example.usage, example.description));
 
-app(params);
+let params = args.parse(process.argv, { name: 'aws-env' });
+
+app({ ...defaults, ...params });
