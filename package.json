@@ -21,11 +21,17 @@
   },
   "homepage": "https://github.com/drentrega/aws-env#readme",
   "scripts": {
-    "build": "pkg . --out-path ./releases && sudo chmod +x ./releases/*",
+    "build:bin": "pkg . --out-path ./releases && sudo chmod +x ./releases/*",
+    "build:add": "git add ./releases",
     "publish": "npm publish --access public"
   },
+  "pre-commit": [
+    "build:bin",
+    "build:add"
+  ],
   "devDependencies": {
-    "pkg": "^4.3.4"
+    "pkg": "^4.3.4",
+    "pre-commit": "^1.2.2"
   },
   "dependencies": {
     "args": "^4.0.0",
