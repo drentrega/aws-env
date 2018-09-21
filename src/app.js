@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const AwsSsm = require('./vendor/aws-ssm');
 const { DEFAULT_ERROR_MSG } = require('./concerns/msgs');
 
@@ -27,7 +29,12 @@ module.exports = async (params) => {
       });
       return acc;
     }, [])
-    .map((param) => `${params.prefix}${param.key}=${param.value}`);
+    .map((param) => `${params.prefix}${param.key}=${param.value}`)
+    .join('\n');
 
-  process.stdout.write(variables.join('\n'));
+  if (params.out) {
+    fs.writeFileSync(params.out, variables)
+  }
+
+  process.stdout.write(variables);
 }

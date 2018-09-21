@@ -6,6 +6,7 @@ const examples = require('./concerns/examples');
 
 const {
   OPTION_NAMESPACE_DESCRIPTION,
+  OPTION_OUT_DESCRIPTION,
   OPTION_PREFIX_DESCRIPTION,
   OPTION_REGION_DESCRIPTION,
   OPTION_VERBOSE_DESCRIPTION,
@@ -13,6 +14,7 @@ const {
 
 args
   .option('namespace', OPTION_NAMESPACE_DESCRIPTION)
+  .option('out', OPTION_OUT_DESCRIPTION)
   .option('prefix', OPTION_PREFIX_DESCRIPTION)
   .option('region', OPTION_REGION_DESCRIPTION)
   .option('verbose', OPTION_VERBOSE_DESCRIPTION)
