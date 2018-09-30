@@ -33,7 +33,7 @@ module.exports = async (params) => {
     .join('\n');
 
   if (params.out) {
-    fs.writeFileSync(params.out, variables)
+    return fs.writeFileSync(params.out, variables)
   }
 
   process.stdout.write(variables);

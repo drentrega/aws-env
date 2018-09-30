@@ -23,7 +23,8 @@
   "scripts": {
     "build:bin": "pkg . --out-path ./releases && sudo chmod +x ./releases/*",
     "build:add": "git add ./releases",
-    "publish": "npm publish --access public"
+    "publish": "npm publish --access public",
+    "version": "npm run publish"
   },
   "pre-commit": [
     "build:bin",
