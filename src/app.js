@@ -13,28 +13,28 @@ module.exports = async (params) => {
 
   if (typeof params.prefix === 'boolean') params.prefix = '';
 
-  let response = null;
+  let response = {};
+  let parameters = [];
   try {
-    response = await AwsSsm.getParametersByPath(params.region, params.namespace)
-  } catch (err) {
-    throw err;
-  }
+    do {
+      response = await AwsSsm.getParametersByPath(params.region, params.namespace, { NextToken: response.NextToken })
+      response.Parameters.reduce((acc, param) => { acc.push(param); return acc; }, parameters);
+    } while(response.NextToken)
+  } catch (err) { throw err; }
 
-  const variables = response
-    .Parameters
-    .reduce((acc, param) => {
-      acc.push({
+  parameters = parameters
+    .map((param) => {
+      return {
         key: param.Name.split('/').pop(),
         value: param.Value.trim().replace(/\n/g, ''),
-      });
-      return acc;
-    }, [])
+      };
+    })
     .map((param) => `${params.prefix}${param.key}=${param.value}`)
     .join('\n');
 
   if (params.out) {
-    return fs.writeFileSync(params.out, variables)
+    return fs.writeFileSync(params.out, parameters)
   }
 
-  process.stdout.write(variables);
+  process.stdout.write(parameters);
 }
