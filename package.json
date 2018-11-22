@@ -26,7 +26,6 @@
     "version": "npm publish --access public"
   },
   "pre-commit": [
-    "build:bin",
     "build:add"
   ],
   "devDependencies": {
