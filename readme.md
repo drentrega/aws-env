@@ -57,7 +57,11 @@ $ aws-env -p "" \
   -r sa-east-1 \
   -n /staging/my-app \
   -o /app/myapp/.env
+<<<<<<< HEAD
 $ cat /app/mysapp/.env
+=======
+$ cat /dre/mysapp/.env
+>>>>>>> master
 NODE_ENV=staging
 DB_USERNAME=root
 DB_PASSWORD=mysecretpassword
@@ -80,7 +84,8 @@ export DB_USERNAME=root
 export DB_PASSWORD=mysecretpassword
 
 # or
-$ aws-env --prefix ""
+$ aws-env --prefix "" \
+  --out /app/myapp/.env
 $ cat /app/mysapp/.env
 NODE_ENV=staging
 DB_USERNAME=root
