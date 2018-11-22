@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/drentrega/aws-env#readme",
   "scripts": {
-    "build:bin": "pkg . --out-path ./releases && sudo chmod +x ./releases/*",
+    "build:bin": "node_modules/.bin/pkg . --out-path ./releases && sudo chmod +x ./releases/*",
     "build:add": "git add ./releases",
     "version": "npm publish --access public"
   },

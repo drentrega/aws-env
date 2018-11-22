@@ -30,11 +30,12 @@ module.exports = async (params) => {
       };
     })
     .map((param) => `${params.prefix}${param.key}=${param.value}`)
+    .sort()
     .join('\n');
 
   if (params.out) {
     return fs.writeFileSync(params.out, parameters)
   }
 
-  process.stdout.write(parameters);
+  process.stdout.write(parameters + "\n");
 }
