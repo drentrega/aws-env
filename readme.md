@@ -57,11 +57,7 @@ $ aws-env -p "" \
   -r sa-east-1 \
   -n /staging/my-app \
   -o /app/myapp/.env
-<<<<<<< HEAD
-$ cat /app/mysapp/.env
-=======
 $ cat /dre/mysapp/.env
->>>>>>> master
 NODE_ENV=staging
 DB_USERNAME=root
 DB_PASSWORD=mysecretpassword
